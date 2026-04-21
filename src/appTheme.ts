@@ -13,14 +13,24 @@ const colors = {
     }
 }
 
-const fontSizes = {
-    blaze: "24px",
-    modu: "16px"
+const textStyles = {
+    blaze: {
+        fontSize: "24px",
+        fontWeight: "normal",
+    },
+    orion: {
+        fontSize: "16px",
+        fontWeight: "normal",
+    },
+    hush: {
+        fontSize: "12px",
+        fontWeight: "normal",
+    }
 }
 
 const appTheme = extendTheme({
     colors,
-    fontSizes,
+    textStyles,
     styles: {
         global: {
             body: {

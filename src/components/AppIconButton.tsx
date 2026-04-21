@@ -33,6 +33,9 @@ const AppIconButton = ({
         _hover={{ 
             bg: "palette.telliTransparent",
         }}
+        _active={{
+            opacity: 0.5,
+        }}
         sx={{
             '& svg': {
                 color: iconColor,

@@ -1,14 +1,17 @@
-import { Center } from "@chakra-ui/react"
-import AppSearchBar from "./AppSearchBar";
+import { Flex, FlexProps } from "@chakra-ui/react";
 
-const AppContent = () => {
+
+const AppContent = (props: FlexProps) => {
     return (
-        <Center
-            w={"100vw"}
-            h={"100vh"}
+        <Flex
+            w="100%"
+            h="100%"
+            overflow="auto"
+            justifyContent="center"
+            alignItems="flex-start"
+            {...props}
         >
-            
-        </Center>
+        </Flex>
     );
 }
 
