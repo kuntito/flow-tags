@@ -1,4 +1,6 @@
 import { Box } from "@chakra-ui/react";
+import AppContent from "./components/AppContent";
+import AppHeader from "./components/AppHeader";
 
 
 function App() {
@@ -10,6 +12,8 @@ function App() {
             display={"flex"}
             flexDirection={"column"}
         >
+            <AppHeader />
+            <AppContent />
         </Box>
     );
 }
