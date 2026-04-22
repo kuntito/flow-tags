@@ -1,36 +1,17 @@
 import { create } from "zustand";
-import { Song } from "../models/Song";
+import { createSongSearchSlice, SongSearchSlice } from "./slices/songSearchSlice";
 
 
-type SongSearchState =
-    | { state: 'idle' }
-    | { state: 'searching' }
-    | { state: 'finishedWithResults'; searchResults: Song[] }
-    | { state: 'finishedNoResult' }
-    | { state: 'error' }
+type AppStore = SongSearchSlice;
 
+const useAppStore = create<AppStore>()(
+    (...args) => {
+        const songSearchSlice = createSongSearchSlice(...args);
 
-interface appStore {
-    songSearchState: SongSearchState;
-    resetSongSearchState: () => void;
-}
-
-
-const useAppStore = create<appStore>((set) => {
-    const songSearchState: SongSearchState = {
-        state: "idle",
-    };
-
-    const resetSongSearchState = () => {
-        set({
-            songSearchState: { state: 'idle'}
-        });
+        return {
+            ...songSearchSlice,
+        }
     }
-
-    return {
-        songSearchState: songSearchState,
-        resetSongSearchState: resetSongSearchState,
-    }
-})
+);
 
 export default useAppStore;
