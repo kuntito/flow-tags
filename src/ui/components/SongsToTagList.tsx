@@ -1,4 +1,4 @@
-import { Song } from "../models/Song";
+import { Song } from "../../models/Song";
 import ItemList from "./AppItemList";
 import SongToTagLI from "./SongToTagLI";
 

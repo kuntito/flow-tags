@@ -1,4 +1,6 @@
 import { Flex, FlexProps } from "@chakra-ui/react";
+import SongSearchFrame from "../frames/songSearchFrame/SongSearchFrame";
+
 
 
 const AppContent = (props: FlexProps) => {
@@ -11,6 +13,8 @@ const AppContent = (props: FlexProps) => {
             alignItems="flex-start"
             {...props}
         >
+            {/* TODO this frame being visible should be conditional */}
+            <SongSearchFrame />
         </Flex>
     );
 }

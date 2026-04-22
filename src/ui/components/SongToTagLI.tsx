@@ -1,5 +1,5 @@
 import { HStack, VStack, Text } from '@chakra-ui/react';
-import { Song } from '../models/Song';
+import { Song } from '../../models/Song';
 import { AddTagIcon } from './appIcons/AddTagIcon';
 import AppIconButton from './AppIconButton';
 
