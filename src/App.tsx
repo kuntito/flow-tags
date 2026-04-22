@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react";
-import AppContent from "./components/AppContent";
-import AppHeader from "./components/AppHeader";
+import AppContent from "./ui/components/AppContent";
+import AppHeader from "./ui/components/AppHeader";
 
 
 function App() {
