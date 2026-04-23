@@ -1,5 +1,6 @@
 import { StateCreator } from "zustand";
 import { Song } from "../../models/Song";
+import flowApiClient from "../../services/flowApiClient";
 
 
 type SongSearchState =
@@ -13,26 +14,40 @@ const defaultSongSearchState: SongSearchState = { state: 'idle' };
 
 
 export interface SongSearchSlice {
-    searchQuery: string;
-    setSearchQuery: (q: string) => void;
-    clearSearchQuery: () => void;
+    searchSongs: (query: string) => Promise<void>;
     songSearchState: SongSearchState;
     resetSongSearchState: () => void;
 }
 
 export const createSongSearchSlice: StateCreator<SongSearchSlice> = (set, get) => {
-    const searchQuery = '';
     const songSearchState = defaultSongSearchState;
 
-    const setSearchQuery = (newQuery: string) => {
-        set({
-            searchQuery: newQuery
-        })
-    };
+    const searchSongs = async (query: string) => {
+        set({ songSearchState: { state: 'searching'} });
 
-    const clearSearchQuery = () => {
-        set({ searchQuery: '' });
-    };
+        try {
+            const res = await flowApiClient.searchSong(query);
+            
+            if (res.success) {
+                const newSongSearchState: SongSearchState = res.itemCount === 0
+                    ? { state: 'finishedNoResult' }
+                    : { state: 'finishedWithResults', searchResults: res.searchResults};
+                set({
+                    songSearchState: newSongSearchState
+                })
+            } else {
+                set({ 
+                    songSearchState: { state: 'error'}
+                });
+            }
+        } catch(e) {
+            console.log(`${(e as Error).message}`);
+            
+            set({ 
+                songSearchState: { state: 'error'}
+            });
+        }
+    }
 
     const resetSongSearchState = () => {
         set({
@@ -41,9 +56,7 @@ export const createSongSearchSlice: StateCreator<SongSearchSlice> = (set, get) =
     }
 
     return {
-        searchQuery,
-        setSearchQuery,
-        clearSearchQuery,
+        searchSongs,
         resetSongSearchState,
         songSearchState
     }
