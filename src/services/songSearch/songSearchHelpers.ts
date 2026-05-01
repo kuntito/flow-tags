@@ -1,8 +1,8 @@
 import { Song } from "../../models/Song";
-import { SongSearchItem } from "./songSearch.types";
+import { SongSearchItemAPI } from "./songSearch.types";
 
 export const toSong = (
-    item: SongSearchItem
+    item: SongSearchItemAPI
 ): Song => ({
     id: item.id,
     title: item.title,

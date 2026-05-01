@@ -4,9 +4,10 @@ const colors = {
     palette: {
         kdb: "#030303",
         sane: "#111111",
+        saneTransparent: "#111111E6", // E6 - 90% opacity
         aguero: "#181818",
         telli: "#FFFFFF",
-        telliTransparent: "#FFFFFF33",
+        telliTransparent: "#FFFFFF33", // 33 - 20% opacity
         marcelo: "#3C3C3C",
         raze: "#68B439",
         debit: "#FD5273",
@@ -24,6 +25,10 @@ const textStyles = {
     },
     hush: {
         fontSize: "12px",
+        fontWeight: "normal",
+    },
+    tiny: {
+        fontSize: "8px",
         fontWeight: "normal",
     }
 }

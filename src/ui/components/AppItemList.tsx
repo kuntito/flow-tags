@@ -1,7 +1,7 @@
-import { Box, Divider, VStack } from "@chakra-ui/react";
+import { Box, Divider, StackProps, VStack } from "@chakra-ui/react";
 import type { ReactNode } from "react";
 
-interface Props<T> {
+interface Props<T> extends StackProps {
     data: T[];
     renderItem: (item: T, idx: number) => ReactNode;
     showDivider?: boolean;
@@ -24,28 +24,28 @@ const ItemList = <T,>({
     renderItem,
     showDivider,
     edgePadding = 4,
-    gap = "0px",
-}: Props<T>) => {
+    ...stackProps
+}: Props<T>) => {    
     return (
         <VStack
             w={"100%"}
             gap={0}
+            divider={showDivider ? <Divider /> : undefined}
+            {...stackProps}
         >
             {data.length && <EdgePadding padding={edgePadding} />}
-            <VStack
-                w={"100%"}
-                divider={showDivider ? <Divider /> : undefined}
-                gap={gap}
-            >
-                {data.map((item, idx) => renderItem(item, idx))}
-            </VStack>
+            {data.map((item, idx) => renderItem(item, idx))}
             {data.length && <EdgePadding padding={edgePadding} />}
         </VStack>
     );
 };
 
 const EdgePadding = ({ padding }: { padding: number }) => {
-    return <Box height={padding} w={"100%"}/>;
+    return <Box
+        height={padding}
+        w={"100%"}
+        flexShrink={0}
+    />;
 };
 
 export default ItemList;

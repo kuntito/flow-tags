@@ -1,4 +1,4 @@
-export interface SongSearchItem {
+export interface SongSearchItemAPI {
     id: string;
     title: string;
     artistStr: string;
@@ -7,7 +7,7 @@ export interface SongSearchItem {
 interface SongSearchSuccess {
     success: true;
     itemCount: number;
-    searchResults: SongSearchItem[];
+    searchResults: SongSearchItemAPI[];
 }
 
 interface SongSearchFailure {

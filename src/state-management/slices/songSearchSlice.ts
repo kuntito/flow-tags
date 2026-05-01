@@ -1,6 +1,7 @@
 import { StateCreator } from "zustand";
 import { Song } from "../../models/Song";
 import flowApiClient from "../../services/flowApiClient";
+import { toSong } from "../../services/songSearch/songSearchHelpers";
 
 
 type SongSearchState =
@@ -31,7 +32,10 @@ export const createSongSearchSlice: StateCreator<SongSearchSlice> = (set, get) =
             if (res.success) {
                 const newSongSearchState: SongSearchState = res.itemCount === 0
                     ? { state: 'finishedNoResult' }
-                    : { state: 'finishedWithResults', searchResults: res.searchResults};
+                    : { 
+                        state: 'finishedWithResults', 
+                        searchResults: res.searchResults.map(toSong)
+                    };
                 set({
                     songSearchState: newSongSearchState
                 })

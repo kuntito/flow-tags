@@ -1,7 +1,8 @@
-import { HStack, VStack, Text } from '@chakra-ui/react';
+import { HStack, VStack, Text, Menu, MenuButton, MenuList } from '@chakra-ui/react';
 import { Song } from '../../models/Song';
 import { AddTagIcon } from './appIcons/AddTagIcon';
 import AppIconButton from './AppIconButton';
+import TagSongDropdown from './TagSongDropdown';
 
 
 interface Props {
@@ -26,12 +27,27 @@ const SongToTagLI = ({ song }: Props) => (
                 {song.artistStr}
             </Text>
         </VStack>
-        <AppIconButton
-            icon={<AddTagIcon boxSize={"24px"}/>}
-            iconColor='palette.isco'
-            iconColorWhenHovered='palette.telli'
-            onClick={() => {}}
-        />
+        <Menu>
+            <MenuButton
+                as={AppIconButton}
+                icon={<AddTagIcon boxSize={"24px"}/>}
+                iconColor='palette.isco'
+                iconColorWhenHovered='palette.telli'
+                onClick={() => {}}
+            />
+            <MenuList
+                bg={"palette.aguero"}
+                border={"none"}
+                px={0}
+                display={"flex"}
+                justifyContent={"center"}
+            >
+                <TagSongDropdown
+                    // border={"1px solid green"}
+                    w={"100%"}
+                />
+            </MenuList>
+        </Menu>
     </HStack>
 )
 

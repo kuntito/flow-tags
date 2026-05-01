@@ -8,9 +8,21 @@ const AppContent = (props: FlexProps) => {
         <Flex
             w="100%"
             h="100%"
-            overflow="auto"
             justifyContent="center"
             alignItems="flex-start"
+            overflow="auto"
+            sx={{
+                '&::-webkit-scrollbar': {
+                    width: '4px',
+                },
+                '&::-webkit-scrollbar-track': {
+                    bg: 'palette.kdb',
+                },
+                '&::-webkit-scrollbar-thumb': {
+                    bg: 'palette.marcelo',
+                    borderRadius: '4px',
+                },
+            }}
             {...props}
         >
             {/* TODO this frame being visible should be conditional */}
