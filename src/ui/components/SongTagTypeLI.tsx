@@ -18,6 +18,7 @@ const SongTagTypeLI = ({
                 py={"3px"}
                 px={`${itemPaddingX}px`}
                 gap={"10px"}
+                cursor={"pointer"}
                 sx={{
                     '&:hover': {
                         bg: 'palette.marcelo'
