@@ -1,18 +1,25 @@
-export interface SongSearchItemAPI {
+export interface SongWithTagsItemAPI {
     id: string;
     title: string;
     artistStr: string;
+    songTags: {
+        tagId: number;
+        tagName: string;
+        tagDescription: string;
+    }[];
 }
 
-interface SongSearchSuccess {
+interface SongWithTagsSearchSuccess {
     success: true;
     itemCount: number;
-    searchResults: SongSearchItemAPI[];
+    searchResults: SongWithTagsItemAPI[];
 }
 
-interface SongSearchFailure {
+interface SongWithTagsSearchFailure {
     success: false;
     debug: object;
 }
 
-export type SearchSongResponse  = SongSearchSuccess | SongSearchFailure;
+export type SongWithTagsSearchResponse  = 
+    | SongWithTagsSearchSuccess
+    | SongWithTagsSearchFailure;

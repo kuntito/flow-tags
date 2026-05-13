@@ -1,17 +1,17 @@
 import { Song } from "../../models/Song";
 import ItemList from "./AppItemList";
-import SongToTagLI from "./SongToTagLI";
+import SongLI from "./SongLI";
 
 interface Props {
     songsToTag: Song[];
 }
 
-const SongsToTagList = ({songsToTag}: Props) => {
+const SongList = ({songsToTag}: Props) => {
     return (
         <ItemList
             data={songsToTag}
             renderItem={(item, idx) => (
-                <SongToTagLI 
+                <SongLI 
                     key={idx}
                     song={item}
                 />
@@ -22,4 +22,4 @@ const SongsToTagList = ({songsToTag}: Props) => {
     )
 }
 
-export default SongsToTagList
+export default SongList

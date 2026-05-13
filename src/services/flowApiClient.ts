@@ -1,11 +1,11 @@
 import { envConfig } from "../config/envConfig";
 import { FetchSongTagTypesResponse } from "./fetchSongTagTypes/fetchSongTags.types";
-import { SearchSongResponse } from "./songSearch/songSearch.types";
+import { SongWithTagsSearchResponse } from "./songSearch/songSearch.types";
 
 const BASE_URL = envConfig.VITE_FLOW_API_BASE_URL;
 
 const flowApiClient = {
-    searchSong: async (query: string): Promise<SearchSongResponse> => {
+    searchSong: async (query: string): Promise<SongWithTagsSearchResponse> => {
         // URLs can't contain certain characters, i.e. space - " "
 
         // if a URL contains "chill vibes", 
@@ -13,7 +13,7 @@ const flowApiClient = {
 
         // without this, unintended things may happen.
         const encodedQuery = encodeURIComponent(query);
-        const url = `${BASE_URL}/api/flow/search?q=${encodedQuery}`;
+        const url = `${BASE_URL}/api/flow/search-w-tags?q=${encodedQuery}`;
         const res = await fetch(url);
         return res.json();
     },

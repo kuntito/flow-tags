@@ -1,6 +1,6 @@
 import { useToast } from "@chakra-ui/react";
 import useAppStore from "../../../state-management/appStore"
-import SongsToTagList from "../../components/SongsToTagList";
+import SongList from "../../components/SongList";
 import OngoingSearchIndicator from "./components/OngoingSearchIndicator";
 
 import SongSearchNoResultsIndicator from "./components/SongSearchNoResultsIndicator";
@@ -33,7 +33,7 @@ const SongSearchFrame = () => {
         case 'finishedNoResult':
             return <SongSearchNoResultsIndicator />
         case 'finishedWithResults':
-            return <SongsToTagList songsToTag={songSearchState.searchResults} />
+            return <SongList songsToTag={songSearchState.searchResults} />
         case 'error':
             return null;
     }

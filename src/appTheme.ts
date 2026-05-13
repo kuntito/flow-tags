@@ -11,6 +11,7 @@ const colors = {
         marcelo: "#3C3C3C",
         raze: "#68B439",
         debit: "#FD5273",
+        isco: "#4D4D4D",
     }
 }
 
@@ -30,6 +31,11 @@ const textStyles = {
     tiny: {
         fontSize: "8px",
         fontWeight: "normal",
+    },
+    mono: {
+        fontSize: "10px",
+        fontWeight: "normal",
+        fontFamily: "monospace"
     }
 }
 

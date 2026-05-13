@@ -1,10 +1,15 @@
 import { Song } from "../../models/Song";
-import { SongSearchItemAPI } from "./songSearch.types";
+import { SongWithTagsItemAPI } from "./songSearch.types";
+
 
 export const toSong = (
-    item: SongSearchItemAPI
+    item: SongWithTagsItemAPI
 ): Song => ({
     id: item.id,
     title: item.title,
     artistStr: item.artistStr,
+    tags: item.songTags.map(swt => ({
+        tagName: swt.tagName,
+        tagDescription: swt.tagDescription
+    }))
 })

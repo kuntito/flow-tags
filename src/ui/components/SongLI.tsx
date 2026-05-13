@@ -3,6 +3,8 @@ import { Song } from '../../models/Song';
 import { AddTagIcon } from './appIcons/AddTagIcon';
 import AppIconButton from './AppIconButton';
 import TagSongDropdown from './TagSongDropdown';
+import SongTagBadgeRow from './songTags/SongTagBadgeRow';
+import EmptySongTagBadge from './songTags/EmptySongTagBadge';
 
 
 interface Props {
@@ -10,7 +12,7 @@ interface Props {
 }
 
 
-const SongToTagLI = ({ song }: Props) => (
+const SongLI = ({ song }: Props) => (
     <HStack
         justifyContent={"space-between"}
         w={"434px"}
@@ -18,14 +20,28 @@ const SongToTagLI = ({ song }: Props) => (
         <VStack
             alignItems={"start"}
             w={"100%"}
-            gap={0}
-        >
-            <Text textStyle={"orion"}>
-                {song.title}
-            </Text>
-            <Text textStyle={"hush"}>
-                {song.artistStr}
-            </Text>
+            gap={"8px"}
+            >
+            <VStack
+                gap={0}
+                w={"100%"}
+                alignItems={"start"}
+            >
+                <Text textStyle={"orion"}>
+                    {song.title}
+                </Text> 
+                <Text textStyle={"hush"}>
+                    {song.artistStr}
+                </Text>
+            </VStack>
+            { 
+                song.tags.length === 0 ?
+                <EmptySongTagBadge /> :                
+                <SongTagBadgeRow
+                    songTags={song.tags} 
+                    w={"100%"}
+                />
+            }
         </VStack>
         <Menu>
             <MenuButton
@@ -51,4 +67,4 @@ const SongToTagLI = ({ song }: Props) => (
     </HStack>
 )
 
-export default SongToTagLI
+export default SongLI

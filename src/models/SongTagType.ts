@@ -4,7 +4,7 @@ export interface SongTagType {
 }
 
 export const dummySongTag: SongTagType = {
-    tagName: "234",
+    tagName: "tag",
     tagDescription: "Nigerian songs."
 }
 
