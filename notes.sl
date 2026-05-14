@@ -37,3 +37,18 @@
 
 +   react hook for debouncing, delays function calls until user stops typing:
     `npm i use-debounce`
+
++   to deploy to vercel,
+
+    first run a local build:
+    `npm run build`, make sure there are no errors
+
+    then, use this to deploy:
+    `vercel`
+
+    NB:
+    this works for me, 
+    but i assume it's because i've set up vercel in the past.
+
+    if vercel not installed, a starting point is:
+    `npm i -g vercel`
