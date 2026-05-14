@@ -3,13 +3,25 @@ import useAppStore from "../../state-management/appStore";
 import ItemList from "./AppItemList";
 import SongTagTypeLI from "./SongTagTypeLI";
 import { useEffect } from "react";
+import { SongTagType } from "../../models/SongTagType";
 
 interface Props extends BoxProps {
+    songId: number;
+    songTitle: string;
     // padding is passed cause it needs to match parent header padding
     paddingX: number;
+    hideDropdownMenu: () => void;
+    onSongTagAdded: (songTag: SongTagType) => void;
 }
 
-const TagSongDropdownContent = ({ paddingX, ...boxProps }: Props ) => {
+const TagSongDropdownContent = ({ 
+    songId,
+    songTitle,
+    paddingX, 
+    hideDropdownMenu,
+    onSongTagAdded,
+    ...boxProps 
+}: Props ) => {
     const fetchSongTagState = useAppStore(s => s.fetchSongTagState);
     const fetchSongTagTypes = useAppStore(s => s.fetchSongTagTypes);
 
@@ -41,8 +53,12 @@ const TagSongDropdownContent = ({ paddingX, ...boxProps }: Props ) => {
                         renderItem={(item, idx) => (
                             <SongTagTypeLI
                                 key={idx}
+                                songId={songId}
+                                songTitle={songTitle}
                                 songTagType={item}
                                 itemPaddingX={paddingX}
+                                hideDropdownMenu={hideDropdownMenu}
+                                onSongTagAdded={onSongTagAdded}
                             />
                         )}
                         gap="6px"

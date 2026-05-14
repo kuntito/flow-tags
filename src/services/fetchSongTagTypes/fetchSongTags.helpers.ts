@@ -4,6 +4,7 @@ import { SongTagTypeAPI } from "./fetchSongTags.types";
 export const toSongTagType = (
     apiItem: SongTagTypeAPI,
 ): SongTagType => ({
+    tagId: apiItem.tagId,
     tagName: apiItem.tagName,
     tagDescription: apiItem.tagDescription,
 });

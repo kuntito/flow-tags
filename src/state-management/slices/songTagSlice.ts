@@ -13,6 +13,7 @@ type FetchSongTagState =
 const defaultFetchSongTagState: FetchSongTagState = { state: 'idle' };
 
 export interface SongTagSlice {
+    addTagToSong: (tagId: number, songId: number) => Promise<boolean>;
     fetchSongTagTypes: () => Promise<void>;
     fetchSongTagState: FetchSongTagState;
     refreshSongTagTypes: () => Promise<void>;
@@ -70,9 +71,19 @@ export const createSongTagSlice: StateCreator<SongTagSlice> = (set, get) => {
         await fetchFromApi();
     }
 
+    const addTagToSong = async (
+        tagId: number,
+        songId: number
+    ): Promise<boolean>  => {
+        const res = await flowApiClient.addTagToSong(tagId, songId);
+
+        return res.success;
+    }
+
     return {
         fetchSongTagTypes,
         fetchSongTagState,
         refreshSongTagTypes,
+        addTagToSong,
     };
 }

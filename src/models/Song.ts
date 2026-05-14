@@ -1,14 +1,14 @@
 import { dummySongTag, SongTagType } from "./SongTagType";
 
 export interface Song {
-    id: string;
+    id: number;
     title: string;
     artistStr: string;
     tags: SongTagType[];
 }
 
 export const dummySong: Song = {
-    id: "0",
+    id: 0,
     title: "Cold War",
     artistStr: "Llona (feat. FAVE)",
     tags: [
@@ -21,29 +21,31 @@ export const dummySong: Song = {
 
 export const dummySongList: Song[] = [
     { 
-        id: "0",
+        id: 0,
         title: "2002",
         artistStr: "Anne-Marie", 
         tags: [
             {
+                tagId: 0,
                 tagName: "tag",
                 tagDescription: "sumn",
             }
         ] 
     },
     { 
-        id: "1",
+        id: 1,
         title: "Too Sad To Cry",
         artistStr: "Sasha Sloan", 
         tags: [
             {
+                tagId: 1,
                 tagName: "sad",
                 tagDescription: "sumn",
             }
         ] 
     },
     { 
-        id: "2",
+        id: 2,
         title: "No Drama",
         artistStr: "Tinashe", 
         tags: [
@@ -51,7 +53,7 @@ export const dummySongList: Song[] = [
         ] 
     },
     { 
-        id: "3",
+        id: 3,
         title: "Can't Breathe",
         artistStr: "Llona", 
         tags: [
@@ -59,7 +61,7 @@ export const dummySongList: Song[] = [
         ] 
     },
     { 
-        id: "4",
+        id: 4,
         title: "Champion",
         artistStr: "Elina Stridh", 
         tags: [
@@ -67,7 +69,7 @@ export const dummySongList: Song[] = [
         ] 
     },
     { 
-        id: "5",
+        id: 5,
         title: "Worst Luck",
         artistStr: "6LACK", 
         tags: [
@@ -75,7 +77,7 @@ export const dummySongList: Song[] = [
         ] 
     },
     { 
-        id: "6",
+        id: 6,
         title: "Again",
         artistStr: "Sasha Sloan", 
         tags: [
@@ -83,7 +85,7 @@ export const dummySongList: Song[] = [
         ] 
     },
     { 
-        id: "7",
+        id: 7,
         title: "Deep Ends",
         artistStr: "Ollie", 
         tags: [
@@ -91,7 +93,7 @@ export const dummySongList: Song[] = [
         ] 
     },
     { 
-        id: "8",
+        id: 8,
         title: "Higher",
         artistStr: "Burna Boy", 
         tags: [
@@ -99,7 +101,7 @@ export const dummySongList: Song[] = [
         ] 
     },
     { 
-        id: "9",
+        id: 9,
         title: "Drunk in the Bathtub",
         artistStr: "Jessie Murph", 
         tags: [
@@ -107,7 +109,7 @@ export const dummySongList: Song[] = [
         ] 
     },
     { 
-        id: "10",
+        id: 10,
         title: "Masquerade",
         artistStr: "Elina Stridh", 
         tags: [
@@ -115,7 +117,7 @@ export const dummySongList: Song[] = [
         ] 
     },
     { 
-        id: "11",
+        id: 11,
         title: "Holy Ghost",
         artistStr: "Omah Lay", 
         tags: [
@@ -123,7 +125,7 @@ export const dummySongList: Song[] = [
         ] 
     },
     { 
-        id: "12",
+        id: 12,
         title: "Pray",
         artistStr: "Jessie Murph", 
         tags: [
@@ -131,7 +133,7 @@ export const dummySongList: Song[] = [
         ] 
     },
     { 
-        id: "13",
+        id: 13,
         title: "Monica Lewinsky",
         artistStr: "SAINt JHN", 
         tags: [
@@ -139,7 +141,7 @@ export const dummySongList: Song[] = [
         ] 
     },
     { 
-        id: "14",
+        id: 14,
         title: "Trophies",
         artistStr: "SAINt JHN", 
         tags: [
@@ -147,7 +149,7 @@ export const dummySongList: Song[] = [
         ] 
     },
     { 
-        id: "15",
+        id: 15,
         title: "Rara",
         artistStr: "Tml Vibez", 
         tags: [
@@ -155,7 +157,7 @@ export const dummySongList: Song[] = [
         ] 
     },
     { 
-        id: "16",
+        id: 16,
         title: "365 Days",
         artistStr: "Tml Vibez", 
         tags: [
@@ -163,7 +165,7 @@ export const dummySongList: Song[] = [
         ] 
     },
     { 
-        id: "17",
+        id: 17,
         title: "Diet Coke",
         artistStr: "Pusha T", 
         tags: [
@@ -171,7 +173,7 @@ export const dummySongList: Song[] = [
         ] 
     },
     { 
-        id: "18",
+        id: 18,
         title: "Ace Trumpets",
         artistStr: "Clipse", 
         tags: [
@@ -179,7 +181,7 @@ export const dummySongList: Song[] = [
         ] 
     },
     { 
-        id: "19",
+        id: 19,
         title: "Best Of Me",
         artistStr: "BNXN", 
         tags: [

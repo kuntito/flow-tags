@@ -5,10 +5,17 @@ import TagSongDropdownContent from "./TagSongDropdownContent";
 import { AddTagIcon } from "./appIcons/AddTagIcon";
 
 interface Props extends StackProps {
-
+    songId: number;
+    songTitle: string;
+    hideDropdownMenu: () => void;
+    onSongTagAdded: (songTag: SongTagType) => void;
 }
 
 const TagSongDropdown = ({
+    songId,
+    songTitle,
+    hideDropdownMenu,
+    onSongTagAdded,
     ...stackProps
  }: Props) => {
     /**
@@ -41,7 +48,11 @@ const TagSongDropdown = ({
             </HStack>
             <Box h={"4px"} />
             <TagSongDropdownContent
+                songId={songId}
+                songTitle={songTitle}
                 paddingX={paddingX}
+                hideDropdownMenu={hideDropdownMenu}
+                onSongTagAdded={onSongTagAdded}
                 w={"100%"}
                 flex={1}
             />

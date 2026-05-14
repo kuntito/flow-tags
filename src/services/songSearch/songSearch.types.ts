@@ -1,5 +1,5 @@
 export interface SongWithTagsItemAPI {
-    id: string;
+    id: number;
     title: string;
     artistStr: string;
     songTags: {

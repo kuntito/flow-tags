@@ -1,4 +1,5 @@
 export interface SongTagTypeAPI {
+    tagId: number;
     tagName: string;
     tagDescription: string;
 }
