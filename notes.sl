@@ -52,3 +52,5 @@
 
     if vercel not installed, a starting point is:
     `npm i -g vercel`
+
+    add environment variables on Vercel dashboard.
