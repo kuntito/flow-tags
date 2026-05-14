@@ -17,6 +17,9 @@ const SongList = ({songsToTag}: Props) => {
                 />
             )}
             gap="16px"
+            px={{
+                base: "24px"
+            }}
             edgePadding={8}
         />
     )

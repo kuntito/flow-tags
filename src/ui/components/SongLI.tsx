@@ -36,7 +36,10 @@ const SongLI = ({ song }: Props) => {
     
     return <HStack
         justifyContent={"space-between"}
-        w={"434px"}
+        w={{
+            base: "100%",
+            md: "434px",
+        }}
     >
         <VStack
             alignItems={"start"}
